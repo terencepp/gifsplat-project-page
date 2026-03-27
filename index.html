@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="GIFSplat is a generative prior-guided iterative feed-forward framework for 3D Gaussian Splatting from sparse, unposed views.">
+  <meta name="keywords" content="GIFSplat, 3D Gaussian Splatting, 3DGS, sparse-view reconstruction, feed-forward reconstruction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GIFSplat: Generative Prior-Guided Iterative Feed-Forward 3D Gaussian Splatting from Sparse Views</title>
+
+  <!-- This file is designed to replace index.html in the Nerfies template repo. -->
+  <!-- It assumes the original static/ folder from nerfies.github.io is preserved. -->
+  <!-- Replace these assets with your own exports from the paper/project: -->
+  <!--   ./static/images/teaser.jpg -->
+  <!--   ./static/images/overview.jpg -->
+  <!--   ./static/images/refinement.jpg -->
+  <!--   ./static/images/results_grid.jpg -->
+  <!--   ./static/videos/teaser.mp4 (optional) -->
+  <!--   ./static/videos/realestate10k.mp4 (optional) -->
+  <!--   ./static/videos/dl3dv.mp4 (optional) -->
+  <!--   ./static/videos/dtu.mp4 (optional) -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .publication-title {
+      max-width: 1050px;
+      margin: 0 auto;
+      line-height: 1.15;
+    }
+    .hero-figure {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      background: #fff;
+    }
+    .hero-figure img,
+    .hero-figure video,
+    .result-media img,
+    .result-media video,
+    .method-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .highlight-card,
+    .result-card {
+      height: 100%;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      background: white;
+    }
+    .section-note {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    .caption {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 0.75rem;
+    }
+    .placeholder-note {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 0.5rem;
+    }
+    pre code {
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GIFSplat: Generative Prior-Guided Iterative Feed-Forward 3D Gaussian Splatting from Sparse Views</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Tianyu Chen<sup>1</sup>,</span>
+            <span class="author-block">Wei Xiang<sup>1</sup>,</span>
+            <span class="author-block">Kang Han<sup>1</sup>,</span>
+            <span class="author-block">Yu Lu<sup>1</sup>,</span>
+            <span class="author-block">Di Wu<sup>1</sup>,</span>
+            <span class="author-block">Gaowen Liu<sup>2</sup>,</span>
+            <span class="author-block">Ramana Rao Kompella<sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>La Trobe University</span>
+            <span class="author-block"><sup>2</sup>Cisco Research</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2602.22571.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2602.22571" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/html/2602.22571v1" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-globe"></i></span>
+                  <span>HTML</span>
+                </a>
+              </span>
+              <!-- Uncomment after code release. -->
+              <!--
+              <span class="link-block">
+                <a href="YOUR_CODE_LINK" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              -->
+              <!-- Uncomment after video/demo release. -->
+              <!--
+              <span class="link-block">
+                <a href="YOUR_VIDEO_LINK" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="hero-figure">
+        <!-- Use either the image block below OR the video block above it. -->
+        <!--
+        <video autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/teaser.mp4" type="video/mp4">
+        </video>
+        -->
+        <img src="./static/images/teaser.jpg" alt="GIFSplat teaser figure">
+      </div>
+      <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+        GIFSplat enables scene-adaptive refinement for sparse-view 3D Gaussian Splatting with forward-only iterative updates and lightweight generative prior guidance.
+      </h2>
+      <p class="has-text-centered placeholder-note">
+        Replace <code>./static/images/teaser.jpg</code> with your teaser figure, or switch to <code>./static/videos/teaser.mp4</code> if you prefer a looping teaser video.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Feed-forward 3D reconstruction offers substantial runtime advantages over per-scene optimization, which remains slow at inference and often fragile under sparse views. However, existing feed-forward methods still have room for improvement, especially under domain shift, and often fail to preserve second-level inference time once a generative prior is introduced.
+          </p>
+          <p>
+            GIFSplat addresses this limitation with a purely feed-forward iterative refinement framework for 3D Gaussian Splatting from sparse unposed views. Instead of relying on one-shot prediction or test-time gradient descent, it progressively updates the current 3D scene using a small number of forward-only residual refinement steps. In addition, a frozen diffusion prior is distilled into Gaussian-level guidance cues from enhanced novel renderings, enabling per-scene adaptation without backpropagation or uncontrolled view-set growth.
+          </p>
+          <p>
+            Across DL3DV, RealEstate10K, and DTU, GIFSplat improves reconstruction quality over recent feed-forward baselines while retaining practical second-scale inference and avoiding camera-pose requirements and test-time optimization.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-4">
+        <div class="card highlight-card">
+          <div class="card-content">
+            <h3 class="title is-5">Iterative feed-forward refinement</h3>
+            <p>
+              A weight-shared residual update module progressively refines a fixed Gaussian set through multiple forward passes, improving scene fidelity without gradient-based test-time optimization.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="card highlight-card">
+          <div class="card-content">
+            <h3 class="title is-5">Generative prior fusion</h3>
+            <p>
+              A frozen diffusion enhancer provides lightweight discrepancy cues from enhanced renderings, bringing generative knowledge into the refinement loop without expensive iterative optimization.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="card highlight-card">
+          <div class="card-content">
+            <h3 class="title is-5">Efficient and pose-free</h3>
+            <p>
+              The framework preserves feed-forward efficiency, works from sparse unposed views, and improves robustness across both in-domain and out-of-domain benchmarks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Method Overview</h2>
+        <div class="method-media hero-figure">
+          <img src="./static/images/overview.jpg" alt="Overview of GIFSplat">
+        </div>
+        <p class="caption has-text-centered">
+          GIFSplat consists of a Gaussian initializer, an iterative Gaussian head, and a generative prior fusion module. Starting from sparse unposed inputs, the model predicts an initial 3D Gaussian scene and then refines it via forward-only residual updates guided by observation evidence and diffusion-derived cues.
+        </p>
+        <p class="has-text-centered placeholder-note">
+          Recommended asset: export your paper's main pipeline figure to <code>./static/images/overview.jpg</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Progressive Refinement</h2>
+        <div class="columns is-vcentered">
+          <div class="column is-7">
+            <div class="method-media hero-figure">
+              <img src="./static/images/refinement.jpg" alt="Iterative refinement visualization">
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="content has-text-justified">
+              <p>
+                Rather than predicting the final scene in a single pass, GIFSplat updates the Gaussian representation step by step. Each refinement round uses the current state, rendered evidence, and optional prior cues to predict residual corrections to geometry and appearance.
+              </p>
+              <p>
+                This design preserves the simplicity of feed-forward inference while giving the model a mechanism to correct residual errors, especially in sparse-view and under-constrained regions.
+              </p>
+            </div>
+            <p class="section-note">
+              Recommended asset: use your paper's refinement visualization figure or a custom qualitative step-by-step comparison.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+        <p class="section-note has-text-centered">
+          You can keep this section image-based for simplicity, or replace each panel with short MP4 clips for better visual impact.
+        </p>
+
+        <div class="columns">
+          <div class="column is-4">
+            <div class="card result-card">
+              <div class="card-content">
+                <h3 class="title is-5">RealEstate10K</h3>
+                <div class="result-media hero-figure">
+                  <!--
+                  <video controls muted playsinline>
+                    <source src="./static/videos/realestate10k.mp4" type="video/mp4">
+                  </video>
+                  -->
+                  <img src="./static/images/result_realestate10k.jpg" alt="RealEstate10K results">
+                </div>
+                <p class="caption">
+                  Sparse-view reconstruction examples on RealEstate10K highlighting sharper appearance and fewer artifacts after iterative refinement.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-4">
+            <div class="card result-card">
+              <div class="card-content">
+                <h3 class="title is-5">DL3DV</h3>
+                <div class="result-media hero-figure">
+                  <!--
+                  <video controls muted playsinline>
+                    <source src="./static/videos/dl3dv.mp4" type="video/mp4">
+                  </video>
+                  -->
+                  <img src="./static/images/result_dl3dv.jpg" alt="DL3DV results">
+                </div>
+                <p class="caption">
+                  In-domain results on DL3DV showing stronger detail recovery and improved rendering consistency under sparse observation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-4">
+            <div class="card result-card">
+              <div class="card-content">
+                <h3 class="title is-5">DTU / Cross-domain</h3>
+                <div class="result-media hero-figure">
+                  <!--
+                  <video controls muted playsinline>
+                    <source src="./static/videos/dtu.mp4" type="video/mp4">
+                  </video>
+                  -->
+                  <img src="./static/images/result_dtu.jpg" alt="DTU results">
+                </div>
+                <p class="caption">
+                  Cross-domain evaluation demonstrating improved robustness when generalizing beyond the main training distribution.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered" style="margin-top: 1rem;">
+          <div class="column is-four-fifths">
+            <div class="method-media hero-figure">
+              <img src="./static/images/results_grid.jpg" alt="Overall results grid">
+            </div>
+            <p class="caption has-text-centered">
+              Optional summary figure for side-by-side comparisons against feed-forward baselines.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Citation</h2>
+        <div class="content has-text-left">
+<pre><code>@article{chen2026gifsplat,
+  title={GIFSplat: Generative Prior-Guided Iterative Feed-Forward 3D Gaussian Splatting from Sparse Views},
+  author={Chen, Tianyu and Xiang, Wei and Han, Kang and Lu, Yu and Wu, Di and Liu, Gaowen and Kompella, Ramana Rao},
+  journal={arXiv preprint arXiv:2602.22571},
+  year={2026}
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is adapted for GIFSplat and is intended to be used with the public Nerfies project-page template.
+          </p>
+          <p>
+            If you reuse the Nerfies template, keep the original license/attribution requirements from that repository and remove any original analytics code you do not own.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
