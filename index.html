@@ -10,10 +10,10 @@
   <!-- This file is designed to replace index.html in the Nerfies template repo. -->
   <!-- It assumes the original static/ folder from nerfies.github.io is preserved. -->
   <!-- Replace these assets with your own exports from the paper/project: -->
-  <!--   ./static/images/teaser.jpg -->
-  <!--   ./static/images/overview.jpg -->
-  <!--   ./static/images/refinement.jpg -->
-  <!--   ./static/images/results_grid.jpg -->
+  <!--   ./static/images/teaser.png -->
+  <!--   ./static/images/overview.png -->
+  <!--   ./static/images/refinement.png -->
+  <!--   ./static/images/results_grid.png -->
   <!--   ./static/videos/teaser.mp4 (optional) -->
   <!--   ./static/videos/realestate10k.mp4 (optional) -->
   <!--   ./static/videos/dl3dv.mp4 (optional) -->
@@ -161,13 +161,13 @@
           <source src="./static/videos/teaser.mp4" type="video/mp4">
         </video>
         -->
-        <img src="./static/images/teaser.jpg" alt="GIFSplat teaser figure">
+        <img src="./static/images/teaser.png" alt="GIFSplat teaser figure">
       </div>
       <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
         GIFSplat enables scene-adaptive refinement for sparse-view 3D Gaussian Splatting with forward-only iterative updates and lightweight generative prior guidance.
       </h2>
       <p class="has-text-centered placeholder-note">
-        Replace <code>./static/images/teaser.jpg</code> with your teaser figure, or switch to <code>./static/videos/teaser.mp4</code> if you prefer a looping teaser video.
+        Replace <code>./static/images/teaser.png</code> with your teaser figure, or switch to <code>./static/videos/teaser.mp4</code> if you prefer a looping teaser video.
       </p>
     </div>
   </div>
@@ -233,13 +233,13 @@
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">Method Overview</h2>
         <div class="method-media hero-figure">
-          <img src="./static/images/overview.jpg" alt="Overview of GIFSplat">
+          <img src="./static/images/overview.png" alt="Overview of GIFSplat">
         </div>
         <p class="caption has-text-centered">
           GIFSplat consists of a Gaussian initializer, an iterative Gaussian head, and a generative prior fusion module. Starting from sparse unposed inputs, the model predicts an initial 3D Gaussian scene and then refines it via forward-only residual updates guided by observation evidence and diffusion-derived cues.
         </p>
         <p class="has-text-centered placeholder-note">
-          Recommended asset: export your paper's main pipeline figure to <code>./static/images/overview.jpg</code>.
+          Recommended asset: export your paper's main pipeline figure to <code>./static/images/overview.png</code>.
         </p>
       </div>
     </div>
@@ -254,7 +254,7 @@
         <div class="columns is-vcentered">
           <div class="column is-7">
             <div class="method-media hero-figure">
-              <img src="./static/images/refinement.jpg" alt="Iterative refinement visualization">
+              <img src="./static/images/refinement.png" alt="Iterative refinement visualization">
             </div>
           </div>
           <div class="column is-5">
@@ -296,7 +296,7 @@
                     <source src="./static/videos/realestate10k.mp4" type="video/mp4">
                   </video>
                   -->
-                  <img src="./static/images/result_realestate10k.jpg" alt="RealEstate10K results">
+                  <img src="./static/images/result_realestate10k.png" alt="RealEstate10K results">
                 </div>
                 <p class="caption">
                   Sparse-view reconstruction examples on RealEstate10K highlighting sharper appearance and fewer artifacts after iterative refinement.
@@ -315,7 +315,7 @@
                     <source src="./static/videos/dl3dv.mp4" type="video/mp4">
                   </video>
                   -->
-                  <img src="./static/images/result_dl3dv.jpg" alt="DL3DV results">
+                  <img src="./static/images/result_dl3dv.png" alt="DL3DV results">
                 </div>
                 <p class="caption">
                   In-domain results on DL3DV showing stronger detail recovery and improved rendering consistency under sparse observation.
@@ -334,7 +334,7 @@
                     <source src="./static/videos/dtu.mp4" type="video/mp4">
                   </video>
                   -->
-                  <img src="./static/images/result_dtu.jpg" alt="DTU results">
+                  <img src="./static/images/result_dtu.png" alt="DTU results">
                 </div>
                 <p class="caption">
                   Cross-domain evaluation demonstrating improved robustness when generalizing beyond the main training distribution.
@@ -347,7 +347,7 @@
         <div class="columns is-centered" style="margin-top: 1rem;">
           <div class="column is-four-fifths">
             <div class="method-media hero-figure">
-              <img src="./static/images/results_grid.jpg" alt="Overall results grid">
+              <img src="./static/images/results_grid.png" alt="Overall results grid">
             </div>
             <p class="caption has-text-centered">
               Optional summary figure for side-by-side comparisons against feed-forward baselines.
