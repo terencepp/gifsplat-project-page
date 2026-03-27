@@ -122,7 +122,7 @@
               <span class="link-block">
                 <a href="https://arxiv.org/html/2602.22571v1" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-globe"></i></span>
-                  <span>HTML</span>
+                  <span>code</span>
                 </a>
               </span>
               <!-- Uncomment after code release. -->
@@ -180,13 +180,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Feed-forward 3D reconstruction offers substantial runtime advantages over per-scene optimization, which remains slow at inference and often fragile under sparse views. However, existing feed-forward methods still have room for improvement, especially under domain shift, and often fail to preserve second-level inference time once a generative prior is introduced.
-          </p>
-          <p>
-            GIFSplat addresses this limitation with a purely feed-forward iterative refinement framework for 3D Gaussian Splatting from sparse unposed views. Instead of relying on one-shot prediction or test-time gradient descent, it progressively updates the current 3D scene using a small number of forward-only residual refinement steps. In addition, a frozen diffusion prior is distilled into Gaussian-level guidance cues from enhanced novel renderings, enabling per-scene adaptation without backpropagation or uncontrolled view-set growth.
-          </p>
-          <p>
-            Across DL3DV, RealEstate10K, and DTU, GIFSplat improves reconstruction quality over recent feed-forward baselines while retaining practical second-scale inference and avoiding camera-pose requirements and test-time optimization.
+            Feed-forward 3D reconstruction offers substantial runtime advantages over per-scene optimization, which remains slow at inference and often fragile under sparse views. However, existing feed-forward methods still have potential for further performance gains, especially for out-of-domain data, and struggle to retain second-level inference time once a generative prior is introduced. These limitations stem from the one-shot prediction paradigm in existing feed-forward pipeline: models are strictly bounded by capacity, lack inference-time refinement, and are ill-suited for continuously injecting generative priors. We introduce GIFSplat, a purely feed-forward iterative refinement framework for 3D Gaussian Splatting from sparse unposed views. A small number of forward-only residual updates progressively refine current 3D scene using rendering evidence, achieve favorable balance between efficiency and quality.  Furthermore, we distill a frozen diffusion prior into Gaussian-level cues from enhanced novel renderings without gradient backpropagation or ever-increasing view-set expansion, thereby enabling per-scene adaptation with generative prior while preserving feed-forward efficiency. Across DL3DV, RealEstate10K, and DTU, GIFSplat consistently outperforms state-of-the-art feed-forward baselines, improving PSNR by up to +2.1 dB, and it maintains second-scale inference time without requiring camera poses or any test-time gradient optimization.
           </p>
         </div>
       </div>
@@ -254,7 +248,7 @@
         <div class="columns is-vcentered">
           <div class="column is-7">
             <div class="method-media hero-figure">
-              <img src="./static/images/refinement.png" alt="Iterative refinement visualization">
+              <img src="./static/images/IR.png" alt="Iterative refinement visualization">
             </div>
           </div>
           <div class="column is-5">
@@ -327,7 +321,7 @@
           <div class="column is-4">
             <div class="card result-card">
               <div class="card-content">
-                <h3 class="title is-5">DTU / Cross-domain</h3>
+                <h3 class="title is-5">Cross-domain</h3>
                 <div class="result-media hero-figure">
                   <!--
                   <video controls muted playsinline>
@@ -384,9 +378,6 @@
         <div class="content">
           <p>
             This page is adapted for GIFSplat and is intended to be used with the public Nerfies project-page template.
-          </p>
-          <p>
-            If you reuse the Nerfies template, keep the original license/attribution requirements from that repository and remove any original analytics code you do not own.
           </p>
         </div>
       </div>
