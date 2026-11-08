@@ -35,6 +35,17 @@
   <script src="./static/js/index.js"></script>
 
   <style>
+    .affiliation-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin: 1.25rem 0 0.5rem;
+    }
+    .affiliation-logos img { display: block; width: auto; }
+    .affiliation-logos .logo-latrobe { height: 48px; }
+    .affiliation-logos .logo-cisco { height: 46px; }
     .publication-title {
       max-width: 1050px;
       margin: 0 auto;
@@ -103,6 +114,15 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>La Trobe University</span>
             <span class="author-block"><sup>2</sup>Cisco Research</span>
+          </div>
+
+          <div class="affiliation-logos">
+            <a href="https://www.latrobe.edu.au/" target="_blank" rel="noopener">
+              <img src="./images/latrobe_logo.svg" alt="La Trobe University" class="logo-latrobe">
+            </a>
+            <a href="https://research.cisco.com/" target="_blank" rel="noopener">
+              <img src="./images/cisco_logo.svg" alt="Cisco Research" class="logo-cisco">
+            </a>
           </div>
 
           <div class="column has-text-centered">
